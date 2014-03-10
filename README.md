@@ -1,28 +1,14 @@
 Wordpress on OpenShift
 ======================
 
-This git repository helps you get up and running quickly w/ a Wordpress installation
-on OpenShift.  The backend database is MySQL and the database name is the 
-same as your application name (using getenv('OPENSHIFT_APP_NAME')).  You can name
+The backend database is MySQL and the database name is the 
+same as your application name (using getenv('OPENSHIFT_APP_NAME')). You can name
 your application whatever you want.  However, the name of the database will always
 match the application so you might have to update .openshift/action_hooks/build.
 
 
 Running on OpenShift
 ----------------------------
-
-Create an account at http://openshift.redhat.com/ and install the client tools (run 'rhc setup' first)
-
-Create a php-5.3 application (you can call your application whatever you want)
-
-    rhc app create wordpress php-5.3 mysql-5.1 --from-code=https://github.com/openshift/wordpress-example
-
-That's it, you can now checkout your application at:
-
-    http://wordpress-$yournamespace.rhcloud.com
-    
-You'll be prompted to set an admin password and name your WordPress site the first time you visit this 
-page.  
 
 Note: When you upload plugins and themes, they'll get put into your OpenShift data directory
 on the gear ($OPENSHIFT_DATA_DIR).  If you'd like to check these into source control, download the 
@@ -32,8 +18,7 @@ Notes
 =====
 
 GIT_ROOT/.openshift/action_hooks/deploy:
-    This script is executed with every 'git push'.  Feel free to modify this script
-    to learn how to use it to your advantage.  By default, this script will create
+    This script is executed with every 'git push'. By default, this script will create
     the database tables that this example uses.
 
     If you need to modify the schema, you could create a file 
